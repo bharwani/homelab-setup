@@ -27,16 +27,24 @@
     - docker
     - harbor
 
+- hosts: desktop
+  roles:
+    - desktop
+
 - hosts: k8s
   roles:
     - auto-upgrades
     - docker
     - k8s-all
 
-- hosts: k8s-master
+- hosts: k8s-control-plane
   roles:
-    - k8s-master
+    - k8s-control-plane
 
 - hosts: k8s_nodes
   roles:
     - k8s-nodes
+
+- hosts: octopi
+  roles:
+    - octopi
